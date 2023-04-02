@@ -1,0 +1,18 @@
+syntax = "proto3";
+package examples.table;
+
+option go_package = "examples/table";
+
+import "ohoonice/sql/sql.proto";
+
+
+
+message User {
+    option (ohoonice.sql.table) = {
+        table: "user_tab",
+        primary_key: { f: "id" },
+    };
+
+    int64 id = 1;
+    int64 name= 2;
+}

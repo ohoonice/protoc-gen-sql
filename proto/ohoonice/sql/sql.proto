@@ -1,0 +1,21 @@
+syntax = "proto3";
+package ohoonice.sql;
+
+option go_package = "github.com/ohoonice/protoc-gen-sql/proto/ohoonice/sql;sql";
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.MessageOptions {
+    optional Table table = 82100006;
+}
+
+message Table {
+    optional Key    primary_key = 1;
+    repeated Key    unique_keys = 2;
+    repeated Key    keys        = 3;
+    optional string table       = 4;
+}
+
+message Key {
+    repeated string f = 1;
+}
